@@ -47,25 +47,21 @@ def GeraCsv(LogMensage: str) -> None:
     with open (f"{LogPathNow}/pyHttpPing_{momento}.csv","a",encoding='utf-8') as log:
         log.writelines(LogMensage + "\n")
 
-def TestaUrl(url: str, pcred: str) -> None:
+def TestaUrl(url: str) -> None:
     """
     Função que recebe a URL e a credencial para a realização de teste.
 
     O teste de conectividade com a URL é realizada usando a lib requests, onde fazemos um simples GET na URL e verificamos os dados de retorno.
     
     :param url: str: 
-    :param pcred: str: 
 
     :return: None
 
     """
     try:
-        headers: dict[str,str] = {
-        'Content-Type': 'application/json',
-        'Authorization': f'Basic {pcred}'
-        }
+        headers: dict[str,str] = {'Content-Type': 'application/json'}
         GeraLog(f'{datetime.now()} - INFO - Realizando teste na url {url}')
-        response = requests.get(url, headers=headers, verify=False, timeout=10)
+        response: requests.Response = requests.get(url, headers=headers, verify=False, timeout=10)
         color: str = "green" if response.status_code == 200 else "red"
         GeraLog(f'{datetime.now()} - INFO - {url=}, [bold {color}]{response.status_code=}[/bold {color}]')
         GeraCsv(f'{datetime.now()};{url};{response.status_code}')
@@ -91,6 +87,8 @@ def main(urls: list[str], pcred: str) -> None:
     :param urls: list[str]: 
     :param pcred: str: 
 
+    .. todo:: Teste de todo da função main
+
     """
     global count
     # Teste de comentário 2
@@ -106,19 +104,13 @@ def main(urls: list[str], pcred: str) -> None:
 if __name__ == "__main__":
     InicioExecucao: datetime = datetime.now()
     GeraCsv('DATE;URL;STATUS_CODE')
-    print('Por favor, insira seu usuário e senha do WebRIS Enterprise.')
-    UserName: str = input('Usuário: ')
-    Password: str = getpass('Senha: ')
-
-    credentials: str = f'{UserName}:{Password}'
-    fCredentials: str = base64.b64encode(credentials.encode()).decode()
 
     with open ("urls.dat","r") as unidades:
         UrlList: list[str]= unidades.read().splitlines()
 
-    main(UrlList,fCredentials)
+    main(UrlList)
     TerminoExecucao: datetime = datetime.now()
     TempoExecucao: datetime = TerminoExecucao - InicioExecucao
     GeraLog(f'{datetime.now()} - INFO - O tempo de execução foi de {TempoExecucao} com um total de {count} iterações.')
 
-    # TODO: Teste de todo para aparecer na documentação.
+# TODO: Teste de todo para aparecer na documentação.
