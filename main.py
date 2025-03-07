@@ -20,9 +20,13 @@ count: int = 0
 def GeraLog(LogMensage: str) -> None:
     """
     Docstring for GeraLog
+    Esta é uma função simples para manipulação de mensagens de log.
+    Ela vai exibir o log no console e salvar em arquivo.
     
     :param LogMensage: Description
     :type LogMensage: str
+
+    :return: None
     """
     LogPathNow: str = str(os.getcwd()) + "/logs/" + str(ano) + "/" + str(mes) + "/" + str(dia)
     if not os.path.exists(LogPathNow):
