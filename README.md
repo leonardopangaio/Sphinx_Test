@@ -1,6 +1,6 @@
 # Sphinx_Test
 
-Este arquivo tem como objetivo a informar os passos que foram realizados para conseguir instalar o Sphinx e executar ele a fim de gerar a documentação de forma automática com base no código fonte analisado pela ferramente.
+Este arquivo tem como objetivo a informar os passos que foram realizados para conseguir instalar o Sphinx e executar ele a fim de gerar a documentação de forma automática com base no código fonte analisado pela ferramenta.
 
 ## Etapa Principal
 
