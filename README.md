@@ -6,17 +6,19 @@ Este arquivo tem como objetivo a informar os passos que foram realizados para co
 
 1. Instalação do módulo, pode ser via pip com o comando `pip3 install sphinx`, contudo para o exemplo a instalação foi realizada diretamente no sistema operacional com o comando `apt-get install -y python3-sphinx`.
 
-2. Neste caso, para simplicidade, eu criei uma pasta docs dentro do projeto em si, mas nada impede que criemos uma pasta separada para ser tratado em repositório/pipeline separado.
+2. Devemos também instalar o tema que será utilizado, que está no `requirements.txt`. Para o exemplo que trabalharemos aqui, sugiro a utilização de um venv, ativando e instalando as dependências nele.
 
-3. Criação do projeto Sphinx, neste caso é necessário estar dentro da pasta onde a documentação Sphinx será gerada, e para isto utilizei o seguinte comando `sphinx-quickstart --ext-autodoc --ext-todo --ext-coverag`
+3. Neste caso, para simplicidade, eu criei uma pasta docs dentro do projeto em si, mas nada impede que criemos uma pasta separada para ser tratado em repositório/pipeline separado.
+
+4. Criação do projeto Sphinx, neste caso é necessário estar dentro da pasta onde a documentação Sphinx será gerada, e para isto utilizei o seguinte comando `sphinx-quickstart --ext-autodoc --ext-todo --ext-coverag`
 
 > :memo: **Note:** Nesta etapa tive dificuldades, pois em todos os vídeos e documentações que vi, a simples execução do comando `sphinx-quickstart` era o suficiente, contigo para versões atuais, esse comando vai gerar o projeto sem nenhuma configuração existente.
 
-4. Nesta etapa deveremos alterar o arquivo `conf.py`, descomentando as linhas referentes a importação de duas bibliotecas e a definição de caminho.
+5. Nesta etapa deveremos alterar o arquivo `conf.py`, descomentando as linhas referentes a importação de duas bibliotecas e a definição de caminho.
 
-5. Para realizar a geração da documentação, utilizei o comando `sphinx-apidoc -o . ..` para que o Sphinx gere a documentação base (`index.rst` e demais arquivos).
+6. Para realizar a geração da documentação, utilizei o comando `sphinx-apidoc -o . ..` para que o Sphinx gere a documentação base (`index.rst` e demais arquivos).
 
-6. Execução do `make html` para que o Sphinx gere o site com a documentação.
+7. Execução do `make html` para que o Sphinx gere o site com a documentação.
 
 ## Extras
 

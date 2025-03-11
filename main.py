@@ -41,6 +41,8 @@ def GeraCsv(LogMensage: str) -> None:
     """
     Função para manipulação simples de dados que serão gravados em um arquivo de texto com extensão .csv
 
+    Exemplo tratado durante apresentação.
+
     :param LogMensage: str: 
 
     :return: None
